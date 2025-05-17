@@ -1,0 +1,77 @@
+body {
+    font: 100%/1.5 system-ui, sans-serif;
+    display: flex;
+    flex-flow: column;
+    max-width: 80em;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: baseline;
+    width: 100%;
+}
+
+header div label {
+    margin-left: auto;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+header div time, header div em{
+    display: block;
+    margin-top: 0.25em;
+    text-align: right;
+}
+
+header div em {
+    color: #888;
+    font-style: italic;
+}
+
+header div input {
+    width: 300px;
+}
+
+:root {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+}
+
+.legend {
+    display: flex;
+    gap: 3em;
+    margin-block: 1rem;
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.legend-label {
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.legend > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.legend > div::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 2px;
+    background-color: color-mix(
+        in oklch,
+        var(--color-departures),
+        var(--color-arrivals) calc((1 - var(--departure-ratio)) * 100%)
+    );
+    border-radius: 50%;
+}
